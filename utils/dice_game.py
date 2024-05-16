@@ -8,14 +8,13 @@ class DiceGame:
         self.final_user_score = 0
         self.final_stagewins = 0
         self.tie_breaker_rounds=0
-        self.score=[]
 
     def play_game(self, user):
         while True:
             user_score=0
             pc_score=0
 
-            print(f"\n★ New stage ★")
+            print(f"\n★ stage ★")
             while True:
                 for round_count in range(1,4):
                     print(f'\n★ Round {round_count}! ★')

@@ -1,27 +1,31 @@
 import os
 
 class User:
-    def __init__(self,username, password):
+    def __init__(self,username, password, f_score):
         self.username = username
         self.password = password
+        self.f_score = f_score
+        self.data_folder = "data"
+        self.users_file= "users.txt"
+        self.path= os.path.join(self.data_folder, self.users_file)
 
-    def __repr__(self):
-        return f"User(username={self.username}, score={self.score})"
-    
-    def file_load(self, file_path):
-        if not os.path.exists(file_path):
-            return False
+    def load_user(self):
+        users=[]
+
+        if not os.path.exists(self.data_folder):
+            os.makedirs(self.path)
+            return users
         
-        with open(file_path, 'r') as file:
-            for line in file:
-                username, password = line.strip().split(',')
-                if self.username == username:
-                    self.password = password
-                    return True
-            return False
+        if os.path.exists(self.path):
+            with open(self.path, 'r') as file:
+                for line in file:
+                    username, password, f_score = line.strip().split(',')
+                    users.append((username, password, f_score))
+        return users
 
-    def file_save(self, file_path):
-        with open(file_path, 'a') as file:
-            file.write(f"{self.username},{self.password}\n")
-
-
+    def save_users(self, users):
+        if not os.path.exists(self.data_folder):
+            os.makedirs(self.data_folder)
+        with open(self.path, '+a') as file:
+            for username, password, f_score in users:
+                file.write(f"{username}, {password}, {f_score} \n")
