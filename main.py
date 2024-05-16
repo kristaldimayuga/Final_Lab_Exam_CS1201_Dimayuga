@@ -24,7 +24,7 @@ class Main:
                     if logged_in_user:
                         self.dice_game.menu(logged_in_user)
                 elif choice == 3:
-                    break
+                    
                 else:
                     print("Enter a number between 1-3")
             except ValueError as e:
