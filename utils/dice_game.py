@@ -11,8 +11,6 @@ class DiceGame:
 
     def play_game(self, user):
         current_stage = 1
-        user_fscore = 0
-
 
         while True:
             user_score = 0
@@ -61,7 +59,6 @@ class DiceGame:
                 print(f'score: {self.final_user_score}')
                 print(f'stage wins: {self.final_stagewins}')
 
-
                 try:
                     next_stage = input("Do you wish to continue to the next stage? (y/n): ")
                     if next_stage.lower() == 'n':
@@ -76,7 +73,6 @@ class DiceGame:
                 print(f"\n✿ Game over {user.username}! ✿")
                 print(f'score: {self.final_user_score}')
                 print(f'stage wins: {self.final_stagewins}')
-
                 
             record.save_scores(user.username, self.final_user_score, self.final_stagewins, date)
             self.final_user_score = 0
