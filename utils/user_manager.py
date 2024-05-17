@@ -18,7 +18,7 @@ class UserManager(User):
             raise ValueError("Password must be at least 8 characters long")
 
     def register(self):
-        print("Register an account")
+        print("\nRegister an account")
         while True:
             self.username = input("Enter username: ")
             try:
@@ -42,7 +42,7 @@ class UserManager(User):
                 print(e)
 
     def login(self):
-        print("Login to your account")
+        print("\nLogin to your account")
         username = input("Enter username: ")
         password = input("Enter password: ")
         for user in self.users:

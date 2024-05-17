@@ -9,7 +9,13 @@ class Main:
     def main(self):
 
         while True:
-            print("Random Dice Game")
+            print(
+                """
+____ ____ _  _ ___  ____ _  _    ___  _ ____ ____    ____ ____ _  _ ____ 
+|__/ |__| |\ | |  \ |  | |\/|    |  \ | |    |___    | __ |__| |\/| |___ 
+|  \ |  | | \| |__/ |__| |  |    |__/ | |___ |___    |__] |  | |  | |___                                                                          
+"""
+            )
             print("1. register")
             print("2. login")
             print("3. exit")
@@ -24,7 +30,7 @@ class Main:
                     if logged_in_user:
                         self.dice_game.menu(logged_in_user)
                 elif choice == 3:
-                    
+                    exit()
                 else:
                     print("Enter a number between 1-3")
             except ValueError as e:
